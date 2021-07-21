@@ -3,10 +3,21 @@
     404 Error
 {% endblock title %}
 {% block body %}
+
+    {% if error == 'api_error' %}
     <div class="container d-flex flex-column justify-content-center align-items-center">
         <h1>Sorry We couldn't find anything!</h1>
         <a class="btn btn-dark text-center" href=" ">Go Back</a>
+        <p>{{error}}</p>
     </div>
+    {% elif error == 'website_error' %}
+        <div class="container d-flex flex-column justify-content-center align-items-center">
+            <h1>Sorry, that is a bad website address!</h1>
+            <a class="btn btn-dark text-center" href=" ">Go Back</a>
+            {{error}}
+        </div>
+    {% endif %}
+    
 {% endblock body %}
 <style>
     body{
